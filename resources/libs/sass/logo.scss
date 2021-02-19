@@ -1,0 +1,51 @@
+/* Logo ============================================================================================================================================= */
+/* Imports ===== */
+@import 'theme';
+@import 'mixins';
+
+/* Variables ===== */
+$logo-height: 60px;
+$logo-width: 60px;
+
+/* Style Rules ===== */
+.logo {
+    
+    display: flex;
+    align-items: center; // vertical
+    justify-content: center; // horizontal
+    background-color: white;
+    width: 0.7 * $logo-width;
+    height: 0.7 * $logo-height;
+    padding: 0;
+    margin: 5px 10px;
+    clip-path:
+    polygon(
+        0 50%,
+        50% 0%,
+        100% 50%, 
+        50% 100%
+    );
+
+    img {
+        height: 50%;
+    }
+
+    cursor: pointer;
+
+}
+
+@include tablet {
+    .logo {
+        width: 0.8 * $logo-width;
+        height: 0.8 * $logo-height;
+    }
+    
+}
+
+@include desktop {
+    .logo {
+        width: $logo-width;
+        height: $logo-height;
+    }
+    
+}

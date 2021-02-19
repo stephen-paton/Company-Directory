@@ -1,0 +1,86 @@
+/*  ===== Mixins ===== */
+/* Transition */
+@mixin transition($args...) {
+    -webkit-transition: $args;
+    -moz-transition: $args;
+    -ms-transition: $args;
+    -o-transition: $args;
+    transition: $args;
+}
+
+/* Transform */
+@mixin transform($args...) {
+    -webkit-transform: $args;
+    -moz-transform: $args;
+    -ms-transform: $args;
+    -o-transform: $args;
+    transform: $args;
+}
+
+/* Transform Origin */
+@mixin transform-origin($args...) {
+    -webkit-transform-origin: $args;
+    -moz-transform-origin: $args;
+    -ms-transform-origin: $args;
+    -o-transform-origin: $args;
+    transform-origin: $args;
+}
+
+/* Media Queries */
+$tablet-width: 425px;
+$desktop-width: 768px;
+
+@mixin tablet {
+    @media (min-width: #{$tablet-width}) {
+        @content
+    }
+}
+
+@mixin desktop {
+    @media (min-width: #{$desktop-width}) {
+        @content
+    }
+}
+
+@mixin landscape {
+    @media (orientation: landscape) {
+        @content
+    }
+} 
+
+/* Keyframes */
+@mixin keyframes($animation-name) {
+    @-webkit-keyframes #{$animation-name} {
+        @content;
+    }
+    @-moz-keyframes #{$animation-name} {
+        @content;
+    }  
+    @-ms-keyframes #{$animation-name} {
+        @content;
+    }
+    @-o-keyframes #{$animation-name} {
+        @content;
+    }  
+    @keyframes #{$animation-name} {
+        @content;
+    }
+}
+
+/* Animation */
+@mixin animation($str) {
+    -webkit-animation: #{$str};
+    -moz-animation: #{$str};
+    -ms-animation: #{$str};
+    -o-animation: #{$str};
+     animation: #{$str};      
+}
+
+/* Hover ===== */
+@mixin hover {
+    @media (hover: hover) and (pointer: fine) {
+        &:not([disabled]):hover {
+            @content
+        }
+    }
+}

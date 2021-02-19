@@ -1,0 +1,53 @@
+/* Flex Table ======================================================================================================================================= */
+/* Imports ===== */
+@import 'theme';
+@import 'mixins';
+
+/* Style Rules ===== */
+.flex-table, .flex-thead, .flex-tbody, .flex-tfoot, .flex-tr, .flex-th, .flex-td {
+    margin: 0;
+    padding: 0;
+}
+
+.flex-tbody {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; // Horizontal
+    align-items: center; // Vertical
+}
+
+.flex-tr {
+    width: auto;
+    display:flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center; // Vertical
+    align-items: center; // Horizontal
+}
+
+.flex-td {
+    width: 100%;
+    padding: 5px;
+}
+
+@include landscape {
+
+    .flex-tbody {
+
+        flex-direction: column;
+        justify-content: flex-start; // Vertical
+        align-items: flex-start; // Horizontal
+    }
+
+    .flex-tr {
+        flex-direction: row;
+        flex-wrap: nowrap;
+        justify-content: flex-start; // Horizontal
+        align-items: center; // Vertical
+    }
+
+    .flex-td {       
+        width: fit-content;
+    }  
+
+}

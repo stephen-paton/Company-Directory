@@ -1,0 +1,34 @@
+/* Imports ===== */
+@import 'theme';
+
+/* ===== infobox ===== */
+.infobox {
+
+    z-index: 10;
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start; // vertical
+    align-items: flex-end; // horizontal
+
+    .close {
+
+        padding: 0;
+        height: 20px;
+        width: 20px;
+        background-color: $reject-color;
+        border: none;
+
+        img {
+
+            width: 80%;
+            height: auto;
+
+        }
+
+    }
+
+}

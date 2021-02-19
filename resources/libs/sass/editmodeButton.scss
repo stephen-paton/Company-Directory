@@ -1,0 +1,26 @@
+/* Editmode Button ================================================================================================================================== */
+/* Imports ===== */
+@import 'theme';
+
+/* Style Rules =====*/
+.button.editmode-button {
+    display: flex;
+    align-items: center; // vertical
+    justify-content: center; // horizontal
+
+    img {
+        width: 20px;
+        height: auto;
+    }
+
+}
+
+.edit-mode {
+
+    .button.editmode-button {
+
+        background-color: $color-1;
+
+    }
+
+}

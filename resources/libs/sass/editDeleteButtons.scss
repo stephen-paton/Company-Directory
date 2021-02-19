@@ -1,0 +1,52 @@
+/* Edit/Delete Buttons ============================================================================================================================== */
+
+/* Variables ===== */
+$button-size: 20px;
+
+/* Style Rules ===== */
+.button-container {
+
+    margin-left: 5px;
+
+    .edit-button, .delete-button {
+
+        padding: 0;
+        display: none;            
+        height: $button-size;
+        width: $button-size;
+        border: none;
+        border-radius: 0;
+        background-color: transparent;
+        
+        img {
+            max-width: 100%;
+            height: auto;
+        
+        }
+    
+    }
+    
+    .delete-button {
+    
+        margin-left: 20px;
+    
+        &:disabled {
+    
+            opacity: 0.4;
+    
+        }
+    
+    }
+
+}
+
+
+.edit-mode {
+
+    .edit-button, .delete-button {
+
+        display: block;
+
+    }
+
+}

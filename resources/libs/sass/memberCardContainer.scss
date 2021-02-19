@@ -1,0 +1,11 @@
+/* Member Card Container ============================================================================================================================ */
+
+/* Style Rules ===== */
+.member-card-container {
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center; // vertical
+    justify-content: flex-start; // horizontal
+    margin-bottom: 40px;
+}

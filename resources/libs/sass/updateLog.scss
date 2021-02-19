@@ -1,0 +1,84 @@
+/* Update Log ======================================================================================================================================= */
+/* Imports ===== */
+@import 'theme';
+
+/* Style Rules ===== */
+.update-log-container {
+
+    margin: 0;
+    padding: 0;
+    height: 100%;
+
+    .update-log-header {
+
+        display: flex;
+        align-items: center; // vertical
+        justify-content: space-between; // horizontal
+        background-color: $color-3;
+
+        h2 {
+            color: white;
+            margin: 0;
+            padding: 10px;
+        }
+
+        .close {
+
+            padding: 0;
+            height: 30px;
+            width: 30px;
+            background-color: $reject-color;
+            border: none;
+    
+            img {
+    
+                width: 80%;
+                height: auto;
+    
+            }
+    
+        }
+
+    }
+
+    .update-log-body {
+        margin: 0;
+        padding: 0;
+        height: 100%;
+
+        overflow-y: scroll;
+        overflow-x: hidden;
+
+        /* Chrome, Edge, and Safari */
+        &::-webkit-scrollbar {
+            width: 15px;
+        }
+
+        &::-webkit-scrollbar-track {
+            background: white;
+        }
+
+        &::-webkit-scrollbar-thumb {
+            background-color: $color-3;
+            border-radius: 10px;
+            border: 3px solid white;
+        }
+
+        .update-log {
+            margin: 20px;
+            list-style-type: square;
+
+            li {
+                padding: 5px;
+
+                .time {
+                    color: grey;
+                }
+
+            }
+
+        }
+
+    }
+
+}

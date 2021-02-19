@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <!-- Favicon -->
+        <link rel="apple-touch-icon" sizes="180x180" href="images/favicon/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="images/favicon/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="images/favicon/favicon-16x16.png">
+        <link rel="manifest" href="images/favicon/site.webmanifest">
+        <link rel="mask-icon" href="images/favicon/safari-pinned-tab.svg" color="#edae49">
+        <meta name="msapplication-TileColor" content="#edae49">
+        <meta name="theme-color" content="#edae49">
+        <!-- Viewport Setup -->
+        <meta name="viewport" charset="utf-8" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <!-- Title -->
+        <title>Company Directory</title>
+        <!-- ===== CSS ===== -->
+        <!-- Normalize CSS -->
+        <link rel="stylesheet" href="css/normalize.css">
+        <!-- App CSS -->
+        <link rel="stylesheet" href="css/app.css">
+        <!-- ===== JS ===== -->
+        <!-- Bundle -->
+        <script src="js/bundle.js" defer></script>
+    </head>
+    <body>
+        <div class="overlay-buttons">
+            <button type="button" class="update-log-button button">History</button>
+        </div>
+        <header>
+            <div class="main-header">
+                <div class="logo">
+                    <img src="images/icons/company-directory-logo.png">
+                </div>
+                <div class="search-bar">
+                    <button class="filtermode-button">
+                        <img src="images/icons/filter.png">
+                    </button>
+                    <input type="text" class="search-field" id="search" placeholder="Search...">
+                    <button class="search-button" disabled>
+                        <img src="images/icons/search.png">
+                    </button>
+                    <div class="filter-container hidden">
+                        <h3>Filters</h3>
+                        <div class="button-container">
+                            <div class="filter-controls">
+                                <button type="button" class="button clear-button">Clear</button>
+                                <button type="button" class="button add-button">+</button>
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+            <div class="sub-header">
+                <div class=button>
+                    <label for="jump-to">Jump To:</label>
+                    <select id="jump-to"></select>
+                </div>
+                <div class="button-container">
+                    <div class="button">
+                        <label for="sort-content">Sort By:</label>
+                        <select id="sort-content"></select>
+                        <select id="sort-order"></select>
+                    </div>
+                    <button type="button" class="button editmode-button">
+                        <img src="images/icons/edit.png">
+                    </button>
+                    <button type="button" class="button add-button">+</button>
+                </div>
+            </div>
+        </header>
+        <main></main>
+        <footer class="hidden">
+            <div class="update-log-container">
+                <div class="update-log-header">
+                    <h2>History</h2>
+                    <button type="button" class="close button">
+                        <img src="images/icons/cross.png">
+                    </button>
+                </div>
+                <div class="update-log-body">
+                    <ul class="update-log"></ul>
+                </div>
+            </div>
+        </footer>
+    </body>
+</html>

@@ -1,0 +1,138 @@
+<?php
+    /* Insert Personnel ================================================================================================================================ */
+    /* 1. Setup ===== */
+    // Imports
+    include("../../../../../portfolio-config/company-directory/config.php");
+    include("../helpers/helpers.php");
+
+    /* 2. Connect to companydirectory database ===== */
+    // Attempt to connect
+	header('Content-Type: application/json; charset=UTF-8');
+
+	$conn = new mysqli($cd_host, $cd_user, $cd_password, $cd_dbname, $cd_port, $cd_socket);
+
+    // Error handling - Failure to connect
+	if (mysqli_connect_errno()) {
+
+        data_reject($conn, "300", "failure", "Database unavailable.", $execution_start_time);
+
+	}
+    
+    /* 3. Validate Inputs ===== */
+    // Check that POST data is valid
+    $data = $_POST['data'];
+    $expected_properties = ['firstName', 'surname', 'email', 'departmentID'];
+
+    $valid = validate_array_keys($data, "data", $expected_properties);
+
+    // Setup Strings
+    $first_name = cleanup_string($data['firstName']);
+    $surname = cleanup_string($data['surname']);
+    
+    // Validate String Inputs
+    $strings = [$first_name, $surname];
+    $string_names = ['firstName', 'surname'];
+
+    if ($valid[0]) {
+
+        $valid = validate_strings($strings, $string_names);
+
+    }
+
+    // Setup Email
+    $email = cleanup_email($data['email']);
+
+    // Validate Email
+    if ($valid[0]) {
+
+        $valid = validate_email($email, "email");
+
+    }
+
+    // Setup Int
+    $department_id = cleanup_int($data['departmentID']);
+
+    // Validate Int
+    if ($valid[0]) {
+
+        $valid = validate_int($department_id, "departmentID");
+
+    }
+
+    // Error Handling - Incorrect POST data supplied
+    if (!$valid[0]) {
+
+        data_reject($conn, "300", "failure", $valid[1], $execution_start_time);
+
+    }
+
+    /* 4. Check if Personnel already exists ===== */
+    // Setup query
+    $query_string = <<<QUERY
+        SELECT id as personnelID
+        FROM personnel
+        WHERE firstName = ?
+            AND lastName = ?
+            AND email = ?
+            AND departmentID = ?
+QUERY;
+
+    $get_personnel_id = $conn->prepare($query_string);
+    $get_personnel_id->bind_param('sssi', $first_name, $surname, $email, $department_id);
+    
+    // Execute Query
+    $get_personnel_id->execute();
+
+    // Capture Query Results
+    $result = $get_personnel_id->get_result();
+
+    // Error handling - no results obtained
+    if (!$result) {
+
+        data_reject($conn, "400", "executed", "Query failed (get personnel id).", $execution_start_time);
+
+    }
+ 
+    $data = [];
+
+	while ($row = mysqli_fetch_assoc($result)) {
+
+		array_push($data, $row);
+
+    }
+    
+    // If location ID wasn't obtained
+    if (sizeof($data) !== 0) {
+
+        data_reject($conn, "400", "executed", "A user with identical information already exists, so a new user with this information cannot be created.", $execution_start_time);
+
+    }
+
+    /* 5. Insert Personnel ===== */
+    $job_title = "";
+
+    // Setup Query
+    $query_string = <<<QUERY
+        INSERT INTO personnel (firstName, lastName, jobTitle, email, departmentID)
+            VALUES (?, ?, ?, ?, ?)
+QUERY;
+
+    $insert_personnel = $conn->prepare($query_string);
+    $insert_personnel->bind_param('ssssi', $first_name, $surname, $job_title, $email, $department_id);
+
+    // Execute Query and Capture Result
+    $result = $insert_personnel->execute();
+
+    // Error handling - no results obtained
+	if (!$result) {
+
+        data_reject($conn, "400", "executed", "Query failed (insert personnel).", $execution_start_time);
+
+    }
+    
+    /* 6. Return Results ===== */
+    $data = [];
+    
+    data_return($conn, "200", "ok", "User was successfully inserted.", $execution_start_time, $data);
+
+?>

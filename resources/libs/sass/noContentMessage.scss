@@ -1,0 +1,19 @@
+/* No Content Message ============================================================================================================================ */
+/* Imports ===== */
+@import 'theme';
+
+/* Style Rules ===== */
+.no-content-message-container {
+
+    padding: 0;
+    display: flex;
+    align-items: center; // vertical
+    justify-content: center; // horizontal
+
+    .no-content-message {
+        padding: 20px;
+        background-color: white;
+        text-align: center;
+        font-size: 1.2em;
+    }
+}

@@ -1,0 +1,130 @@
+/* Add Table ======================================================================================================================================== */
+/* Imports ===== */
+@import 'theme';
+@import 'mixins';
+
+
+/* Style Rules ===== */
+.flex-table.change-table {
+
+    background-color: white;
+    width: 100%;
+    padding: 10px;
+    padding-right: 0;
+    flex-shrink: 1;
+    min-height: 40px;
+    max-height: 40vh;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    height: fit-content;
+
+    input, select {
+        max-width: 220px;
+        min-width: 150px;
+        width: 100%;
+        flex-shrink: 1;
+        border: 1px solid $color-3;
+        background-color: white;
+    }
+
+    input {
+        background-image: url('../images/icons/edit-pen.png');
+        background-repeat: no-repeat;
+        background-size: 0.6em 0.6em;
+        background-position: right  5px top 50%;
+        padding-right: 25px;
+    
+        &:focus {
+    
+            background-image: none;
+    
+        }
+    
+    }
+
+    /* ===== Scrollbar ===== */
+    /* Firefox */
+    scrollbar-width: thin;
+    scrollbar-color: white $color-2;
+        
+    /* Chrome, Edge, and Safari */
+    &::-webkit-scrollbar {
+    width: 15px;
+    }
+        
+    &::-webkit-scrollbar-track {
+    background: white;
+    }
+    
+    &::-webkit-scrollbar-thumb {
+    background-color: $color-2;
+    border-radius: 10px;
+    border: 3px solid white;
+    }
+
+    .flex-td {
+        width: 100%;
+        padding: 5px;
+    }
+
+    .col1 {
+        font-size: 0.8em;
+        text-align: center;
+    }
+
+    .col2 {
+        font-weight: bold;
+        color: $color-2;
+        display: flex;
+    }
+
+    .col3 {
+        color: darkgrey;
+        text-align: center;
+        white-space: nowrap;
+    }
+
+}
+
+@include landscape {
+
+    .flex-table.change-table {
+
+        .col1 {
+            text-align: right;
+            width: 100px;
+            flex-shrink: 0;
+        }
+    
+        .col2 {
+            text-align: right;
+        }
+    
+        .col3 {
+            text-align: left;
+        }
+
+    }
+
+    
+}
+
+@include tablet {
+
+    .change-table {
+        input {
+            font-size: 1.1em;
+        }
+    }
+
+}
+
+@include desktop {
+
+    .change-table {
+        input {
+            font-size: 1.3em;
+        }
+    }
+
+}

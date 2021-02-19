@@ -1,0 +1,62 @@
+/* Popup Buttons ==================================================================================================================================== */
+/* Imports ===== */
+@import 'theme';
+@import 'mixins';
+
+/* Style Rules ===== */
+.popup-buttons {
+    display: flex;
+    flex-direction: column;
+    align-items: center; // horizontal
+    justify-content: center; // vertical
+
+    button {
+        width: 100%;
+        max-width: 250px;
+        margin: 5px;
+        padding: 10px;
+        font-size: 1em;
+        border: none;
+        box-shadow: 0 0 1px;
+        background-color: $color-3;
+        color: white;
+    }
+
+}
+
+@include landscape {
+
+    .popup-buttons {
+
+        flex-direction: row;
+        align-items: center; // vertical
+        justify-content: space-around; // horizontal
+        width: 100%;
+
+    }
+
+}
+
+@include tablet {
+
+    .popup-buttons {
+    
+        button {
+            font-size: 1.2em;
+        }
+    
+    }
+
+}
+
+@include desktop {
+
+    .popup-buttons {
+    
+        button {
+            font-size: 1.5em;
+        }
+    
+    }
+
+}

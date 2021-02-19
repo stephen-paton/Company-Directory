@@ -1,0 +1,62 @@
+/* Sub Header =======================================================================================================================================*/
+/* Imports ===== */
+@import 'theme';
+
+/* Variables =====*/
+/* Sub-header */
+$sub-header-margin: 10px 5px;
+/* Sub-header Button*/
+$sub-header-button-width: 30px;
+$sub-header-button-height: 30px;
+$sub-header-button-margin: 10px;
+
+/* Style Rules ===== */
+.sub-header {
+
+    display: flex;
+    flex-wrap: wrap;
+    padding: 0;
+    margin: $sub-header-margin;
+    margin-bottom: 0;
+    align-items: flex-start; // vertical
+    justify-content: space-between; // horizontal
+
+    .button {
+
+        background-color: $color-6;
+        border: none;
+        border-radius: $sub-header-button-height/8;
+        padding: 5px;
+        margin-right: $sub-header-button-margin;
+        margin-bottom: $sub-header-button-margin;
+        color: inherit;
+        box-shadow: 0 0 1px;
+        min-height: $sub-header-button-height;
+        min-width: $sub-header-button-width;
+        flex-shrink: 0;
+    
+        select {
+            background-color: inherit;
+            padding: 0;
+            margin: 0;
+            border: none;
+            min-width: 20px;
+        }
+
+        #jump-to {
+            max-width: 20px;
+        }
+    
+        label {
+            border: none;
+        }
+
+    }
+
+    .button-container {
+        justify-content: flex-start;
+        flex-wrap: wrap;
+        flex-shrink: 1;
+    }
+
+}

@@ -1,0 +1,27 @@
+/* Overlay Buttons ================================================================================================================================== */
+/* Imports ===== */
+@import 'theme';
+@import 'mixins';
+
+
+/* Style Rules ===== */
+.overlay-buttons {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    z-index: 8;
+
+    .button {
+        margin: 5px;
+    }
+    .update-log-button {
+        background-color: $color-3;
+        color: white;
+        padding: 10px;
+        border: none;
+        border-radius: 5px;
+        box-shadow: 0 0 1px;
+        flex-shrink: 0;
+        font-size: 1.1em;
+    }
+}

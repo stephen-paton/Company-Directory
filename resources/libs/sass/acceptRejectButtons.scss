@@ -1,0 +1,45 @@
+/* Accept and Reject Buttons ======================================================================================================================== */
+/* Imports ===== */
+@import 'theme';
+
+/* Variables ===== */
+$acc-rej-button-size: 30px;
+
+/* Style Rules ===== */
+.accept, .reject {
+
+    padding: 0;
+    width: $acc-rej-button-size;
+    height: $acc-rej-button-size;
+    border: none;
+    border-radius: $acc-rej-button-size/8;
+    margin: 5px;
+    box-shadow: 0 0 1px;
+
+    display: flex;
+    align-items: center; // vertical
+    justify-content: center; // horizontal
+
+    img {
+
+        height: 60%;
+        width: auto;
+
+    }
+    &:disabled {
+        background-color: $disabled-color;
+    }
+
+}
+
+.accept {
+
+    background-color: $accept-color;
+
+}
+
+.reject {
+
+    background-color: $reject-color;
+
+}

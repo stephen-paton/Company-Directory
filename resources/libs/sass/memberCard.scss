@@ -1,0 +1,108 @@
+/* Member Card ====================================================================================================================================== */
+/* Imports ===== */
+@import 'theme';
+@import 'mixins';
+
+/* Variables ===== */
+$member-card-width: 290px;
+$member-card-margin: 5px;
+
+/* Style Rules ===== */
+.member-card {
+
+    padding: 0;
+    margin: 10px;
+    min-width: $member-card-width;
+    width: 1.5*$member-card-width;
+    overflow: hidden;
+
+    .member-card-header {
+        display: flex;
+        align-items: center; // vertical
+        justify-content: space-between; // horizontal
+        margin: 0;
+        padding: 5px 10px;
+        border-bottom: solid 2px $color-2;
+        background-image: linear-gradient(
+            45deg,
+            white 80%,
+            $color-1 80%, $color-1 90%,
+            $color-2 90%, $color-2 100%,
+        );
+        position: relative;
+        z-index: 1;
+
+        p {
+            padding: 0;
+            margin: 0;
+            flex-shrink: 1;
+            word-spacing: 1.1em;
+        }
+    
+    }
+    
+    .member-info-container {
+        background-color: white;
+        padding: 0;
+        margin: 0;
+        display: flex;
+        align-items: center; // vertical
+        justify-content: flex-start; // horizontal
+        flex-wrap: wrap;
+        position: relative;
+        z-index: 1;
+    }
+    
+    .member-info {
+        max-width: 290px;
+        padding: 5px 10px;
+        display: flex;
+        flex-direction: column;
+        flex-wrap: nowrap;
+        flex-shrink: 0;
+        align-items: flex-start; // horizontal
+        justify-content: center; // vertical
+        text-align: center;
+    
+        p {
+            font-size: 0.6em;
+            margin: 0;
+            margin-bottom: 5px;
+
+        }
+
+        .department, .location, .email {
+            font-size: 0.8em;
+        }
+
+    }
+    
+    .member-display-text {
+
+        &.active {
+            color: $color-2;
+            font-weight: bold;
+        }
+        
+    }  
+
+}
+
+.edit-mode {
+
+    .member-card {
+
+        .member-card-header {
+
+            background-image: linear-gradient(
+                45deg,
+                white 60%,
+                $color-1 60%, $color-1 70%,
+                $color-2 70%, $color-2 100%,
+            );
+
+        }
+    
+    }
+
+}
